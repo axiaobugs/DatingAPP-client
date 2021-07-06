@@ -7,7 +7,6 @@ import {Member} from "../../_models/member";
   styleUrls: ['./member-card.component.css']
 })
 export class MemberCardComponent implements OnInit {
-  // @ts-ignore
   @Input() member: Member|any;
 
   constructor() { }
