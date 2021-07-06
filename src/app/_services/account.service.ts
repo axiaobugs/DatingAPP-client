@@ -4,6 +4,7 @@ import {map} from 'rxjs/operators'
 import {User} from "../_models/user";
 import {ReplaySubject} from "rxjs";
 import {environment} from "../../environments/environment";
+import {Route, Routes} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +46,6 @@ export class AccountService {
   logout(){
     localStorage.removeItem('user');
     this.currentUserSource.next(undefined);
+
   }
 }

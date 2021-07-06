@@ -13,16 +13,13 @@
               <a class="nav-link" routerLink='/massages' routerLinkActive="active">Messages</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" (click)="logout()" href="#">Logout</a>
+              <a class="nav-link" (click)="logout()">Logout</a>
             </li>
           </ng-container>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/errors">Error</a>
-          </li>
         </ul>
 
         <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
-          <img src="{{user.photoUrl}}" alt="{{user.username}}">
+          <img src="{{user.photoUrl}}" alt="{{user.username}}" >
           <a  class="dropdown-toggle text-light ml-2" dropdownToggle>Welcome {{user.username | titlecase}}</a>
           <div class="dropdown-menu mt-3" *dropdownMenu>
             <a routerLink="/member/edit" href="" class="dropdown-item">Edit Profile</a>
