@@ -37,9 +37,11 @@ export class UserManagementComponent implements OnInit {
     this.bsModalRef = this.modalService.show(RolesModalComponent,config);
     this.bsModalRef.content.updateSelectedRoles.subscribe(values =>{
       const rolesToUpdate = {
+        // filter all had checked and get name
         roles:[...values.filter(el => el.checked === true).map(el=>el.name)]
       };
       if (rolesToUpdate){
+        // update local
         this.adminService.updateUserRoles(user.username,rolesToUpdate.roles).subscribe(()=>{
           user.roles = [...rolesToUpdate.roles]
         })
@@ -47,6 +49,7 @@ export class UserManagementComponent implements OnInit {
     })
   }
 
+  // get all role to array  for the openRolesModal.config.initialState.roles
   private getRolesArray(user){
     const roles = [];
     const userRoles=user.roles;
@@ -60,6 +63,7 @@ export class UserManagementComponent implements OnInit {
       for (const userRole of userRoles){
         if (role.name===userRole){
           isMath = true;
+          // checked is for the html input checkbox
           role.checked = true;
           roles.push(role)
           break;
