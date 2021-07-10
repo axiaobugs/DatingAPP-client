@@ -7,8 +7,8 @@
     </tr>
     <tr *ngFor="let user of users">
       <td>{{user.username}}</td>
-      <td>{{user.role}}</td>
-      <td><button class="btn btn-outline-info">Edit Roles</button></td>
+      <td>{{user.roles}}</td>
+      <td><button class="btn btn-outline-info" (click)="openRolesModal(user)">Edit Roles</button></td>
     </tr>
   </table>
 </div>
